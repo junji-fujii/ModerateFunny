@@ -14,8 +14,12 @@ onMounted(async () => {
     const newsData = await newsRes.json();
     const scheduleData = await scheduleRes.json();
     
-    latestNews.value = newsData.slice(0, 3);
-    displaySchedules.value = scheduleData.slice(0, 3);
+    // Sort by ID ascending (1, 2, 3...)
+    const sortedNews = newsData.sort((a: any, b: any) => a.id - b.id);
+    const sortedSchedules = scheduleData.sort((a: any, b: any) => a.id - b.id);
+    
+    latestNews.value = sortedNews.slice(0, 3);
+    displaySchedules.value = sortedSchedules.slice(0, 3);
   } catch (error) {
     console.error('Error fetching data:', error);
   }

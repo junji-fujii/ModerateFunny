@@ -6,7 +6,8 @@ const newsItems = ref<any[]>([]);
 onMounted(async () => {
   try {
     const res = await fetch('https://raw.githubusercontent.com/junji-fujii/ModerateFunny/main/public/data/news.json');
-    newsItems.value = await res.json();
+    const data = await res.json();
+    newsItems.value = data.sort((a: any, b: any) => a.id - b.id);
   } catch (error) {
     console.error('Error fetching news:', error);
   }
