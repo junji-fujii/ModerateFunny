@@ -4,39 +4,15 @@
     "date": "2026.03.12", 
     "title": "2026年度 チームメンバー募集開始", 
     "category": "Recruit",
-    "image": "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800",
+    "image": "https://placehold.jp/800x533.png",
     "content": "Moderate Funnyでは新シーズンに向けて、共に高みを目指すメンバーを募集しています。初心者から経験者まで、情熱のある方はぜひご応募ください。詳細は「メンバー募集」ページをご確認の上、フォームよりご連絡をお待ちしております。"
   },
   { 
     "id": 2, 
-    "date": "2026.03.05", 
-    "title": "春のロングライドイベント開催決定", 
+    "date": "2026.03.12", 
+    "title": "サイトリニューアルしました", 
     "category": "Event",
-    "image": "https://images.unsplash.com/photo-1471506480208-8a93a6c0d477?auto=format&fit=crop&q=80&w=800",
-    "content": "4月下旬に、房総半島を巡る150kmのロングライドイベントを開催します。美しい海岸線と適度なアップダウンを楽しめるコースです。サポートカーも同行しますので、長距離に自信がない方も安心してご参加いただけます。"
-  },
-  { 
-    "id": 3, 
-    "date": "2026.02.28", 
-    "title": "チームジャージのデザインが新しくなりました", 
-    "category": "Notice",
-    "image": "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?auto=format&fit=crop&q=80&w=800",
-    "content": "2026年シーズンの新しいチームジャージのデザインが完成しました！チームカラーのオレンジ and ブラックを基調に、よりモダンで視認性の高いデザインに進化しています。先行予約を受け付けておりますので、メンバーは専用サイトよりお申し込みください。"
-  },
-  { 
-    "id": 4, 
-    "date": "2026.02.15", 
-    "title": "合同練習会（秩父）のお知らせ", 
-    "category": "Practice",
-    "image": "https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?auto=format&fit=crop&q=80&w=800",
-    "content": "今月は秩父エリアでの山岳練習会を行います。獲得標高2000mを超えるタフなコース設定ですが、レベル別にグループ分けを行います。終了後は地元の温泉でリカバリーする予定です。"
-  },
-  { 
-    "id": 5, 
-    "date": "2026.02.01", 
-    "title": "冬のメンテナンス講習会報告", 
-    "category": "Report",
-    "image": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&q=80&w=800",
-    "content": "先週末に開催されたメンテナンス講習会では、基本的な洗車方法からディレイラーの微調整まで幅広く学びました。参加者からは「自分のバイクの状態がより深く理解できた」と好評をいただきました。"
+    "image": "https://placehold.jp/800x533.png",
+    "content": "FunnyRacingはModerateと統合してModerateFunnyに生まれま変わりました！今後ともよろしくお願いします！"
   }
 ]
