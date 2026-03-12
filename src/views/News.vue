@@ -5,7 +5,7 @@ const newsItems = ref<any[]>([]);
 
 onMounted(async () => {
   try {
-    const res = await fetch('/data/news.json');
+    const res = await fetch('https://raw.githubusercontent.com/junji-fujii/ModerateFunny/main/public/data/news.json');
     newsItems.value = await res.json();
   } catch (error) {
     console.error('Error fetching news:', error);

@@ -7,8 +7,8 @@ const displaySchedules = ref<any[]>([]);
 onMounted(async () => {
   try {
     const [newsRes, scheduleRes] = await Promise.all([
-      fetch('/data/news.json'),
-      fetch('/data/schedules.json')
+      fetch('https://raw.githubusercontent.com/junji-fujii/ModerateFunny/main/public/data/news.json'),
+      fetch('https://raw.githubusercontent.com/junji-fujii/ModerateFunny/main/public/data/schedules.json')
     ]);
     
     const newsData = await newsRes.json();
