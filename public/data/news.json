@@ -2,7 +2,6 @@
   {
     "id": 2, 
     "date": "2026.03.12", 
-    "date": "2026.03.12", 
     "title": "2026年度 チームメンバー募集開始", 
     "category": "Recruit",
     "image": "https://placehold.jp/800x533.png",
@@ -10,6 +9,7 @@
   },
   { 
     "id": 1, 
+    "date": "2026.03.12", 
     "title": "サイトリニューアルしました", 
     "category": "Event",
     "image": "https://placehold.jp/800x533.png",
