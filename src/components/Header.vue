@@ -2,9 +2,24 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const isScrolled = ref(false);
+const isMenuOpen = ref(false);
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50;
+};
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+  if (isMenuOpen.value) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+};
+
+const closeMenu = () => {
+  isMenuOpen.value = false;
+  document.body.style.overflow = '';
 };
 
 onMounted(() => {
@@ -17,13 +32,20 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav :class="['nav-bar', { 'nav-scrolled': isScrolled }]">
-    <router-link to="/" class="logo">Moderate Funny</router-link>
-    <div class="nav-links">
-      <router-link to="/about">チーム内容</router-link>
-      <router-link to="/news">お知らせ</router-link>
-      <router-link to="/activity">活動記録</router-link>
-      <router-link to="/recruit" class="cta-btn">メンバー募集</router-link>
+  <nav :class="['nav-bar', { 'nav-scrolled': isScrolled, 'nav-open': isMenuOpen }]">
+    <router-link to="/" class="logo" @click="closeMenu">Moderate Funny</router-link>
+    
+    <div class="hamburger" :class="{ 'active': isMenuOpen }" @click="toggleMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links" :class="{ 'active': isMenuOpen }">
+      <router-link to="/about" @click="closeMenu">チーム内容</router-link>
+      <router-link to="/news" @click="closeMenu">お知らせ</router-link>
+      <router-link to="/activity" @click="closeMenu">活動記録</router-link>
+      <router-link to="/recruit" class="cta-btn" @click="closeMenu">メンバー募集</router-link>
     </div>
   </nav>
 </template>
@@ -56,6 +78,8 @@ onUnmounted(() => {
   color: #fff;
   letter-spacing: 2px;
   text-decoration: none;
+  position: relative;
+  z-index: 1001;
 }
 
 .nav-links {
@@ -96,12 +120,83 @@ onUnmounted(() => {
   box-shadow: 0 5px 15px rgba(255, 62, 0, 0.4);
 }
 
+/* Hamburger Styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) { top: 0px; }
+.hamburger span:nth-child(2) { top: 9px; }
+.hamburger span:nth-child(3) { top: 18px; }
+
+.hamburger.active span:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.hamburger.active span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
+}
+
 @media (max-width: 768px) {
-  .nav-links {
-    gap: 20px;
+  .hamburger {
+    display: block;
   }
-  .nav-links a:not(.cta-btn) {
-    display: none;
+
+  .nav-bar {
+    padding: 20px 5%;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+
+  .cta-btn {
+    width: auto;
+    text-align: center;
   }
 }
 </style>
