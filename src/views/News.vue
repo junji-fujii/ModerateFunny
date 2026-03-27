@@ -7,7 +7,7 @@ onMounted(async () => {
   try {
     const res = await fetch('https://raw.githubusercontent.com/junji-fujii/ModerateFunny/main/public/data/news.json');
     const data = await res.json();
-    newsItems.value = data.sort((a: any, b: any) => a.id - b.id);
+    newsItems.value = data;
   } catch (error) {
     console.error('Error fetching news:', error);
   }
@@ -49,6 +49,11 @@ onMounted(async () => {
 .content-section { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 .section-title { font-size: 3rem; color: #ff3e00; margin-bottom: 40px; }
 .card { padding: 40px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 20px;
+  }
+}
 .glass { background: rgba(0, 0, 0, 0.4); }
 .news-list { display: flex; flex-direction: column; gap: 10px; }
 
@@ -102,7 +107,8 @@ onMounted(async () => {
 .news-item:hover .news-arrow { opacity: 1; }
 
 @media (max-width: 768px) { 
-  .news-item { grid-template-columns: 100px 1fr; gap: 15px; } 
+  .news-item { grid-template-columns: 100px 1fr; gap: 15px; padding: 0; } 
+  .news-item:not(:last-child) { margin-bottom: 1em; padding-bottom: 1em; } 
   .news-arrow { display: none; }
   .news-thumb-container { width: 100px; height: 70px; }
 }

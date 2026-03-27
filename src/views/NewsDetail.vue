@@ -57,6 +57,11 @@ const goBack = () => {
 .news-date { opacity: 0.5; font-family: monospace; }
 .news-title { font-size: 2.5rem; margin-bottom: 30px; line-height: 1.2; }
 .card { padding: 40px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 20px;
+  }
+}
 .glass { background: rgba(0, 0, 0, 0.4); }
 
 .news-image-container {

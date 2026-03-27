@@ -7,7 +7,7 @@ onMounted(async () => {
   try {
     const res = await fetch('https://raw.githubusercontent.com/junji-fujii/ModerateFunny/main/public/data/activities.json');
     const data = await res.json();
-    activities.value = data.sort((a: any, b: any) => a.id - b.id);
+    activities.value = data;
   } catch (error) {
     console.error('Error fetching activities:', error);
   }
@@ -95,7 +95,11 @@ onMounted(async () => {
 .activity-info {
   padding: 25px;
 }
-
+@media screen and (max-width: 768px) {
+  .activity-info {
+    padding: 20px;
+  }
+}
 .glass { background: rgba(0, 0, 0, 0.4); }
 h3 { margin-bottom: 10px; color: #fff; }
 .activity-meta { display: flex; gap: 20px; font-size: 0.8rem; opacity: 0.6; margin-bottom: 15px; }

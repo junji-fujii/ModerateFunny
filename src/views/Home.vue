@@ -14,12 +14,8 @@ onMounted(async () => {
     const newsData = await newsRes.json();
     const scheduleData = await scheduleRes.json();
     
-    // Sort by ID ascending (1, 2, 3...)
-    const sortedNews = newsData.sort((a: any, b: any) => a.id - b.id);
-    const sortedSchedules = scheduleData.sort((a: any, b: any) => a.id - b.id);
-    
-    latestNews.value = sortedNews.slice(0, 3);
-    displaySchedules.value = sortedSchedules.slice(0, 3);
+    latestNews.value = newsData.slice(0, 3);
+    displaySchedules.value = scheduleData.slice(0, 3);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -146,6 +142,11 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
 }
+@media screen and (max-width: 768px) {
+  .schedule-section {
+    padding: 30px 5%;
+  }
+}
 
 .next-ride-badge {
   background: rgba(255, 62, 0, 0.2);
@@ -155,6 +156,11 @@ onMounted(async () => {
   font-size: 0.8rem;
   font-weight: bold;
   border: 1px solid #ff3e00;
+}
+@media screen and (max-width: 768px) {
+  .next-ride-badge {
+    display: inline-block;
+  }
 }
 
 .schedule-table {
@@ -199,6 +205,11 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
 }
+@media screen and (max-width: 768px) {
+  .latest-news {
+    padding: 30px 5% 100px 5%;
+  }
+}
 
 .sub-title {
   font-size: 2rem;
@@ -214,6 +225,12 @@ onMounted(async () => {
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255, 62, 0, 0.3);
 }
+@media screen and (max-width: 768px) {
+  .section-header {
+    display: block;
+    margin-bottom: 15px;
+  }
+}
 
 .view-all {
   color: #fff;
@@ -221,6 +238,11 @@ onMounted(async () => {
   font-size: 0.9rem;
   opacity: 0.6;
   transition: opacity 0.3s;
+}
+@media screen and (max-width: 768px) {
+  .view-all {
+    display: inline-block;
+  }
 }
 
 .view-all:hover {
@@ -235,6 +257,11 @@ onMounted(async () => {
   backdrop-filter: blur(20px);
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 20px;
+  }
 }
 
 .glass {

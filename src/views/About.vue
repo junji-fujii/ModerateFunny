@@ -42,8 +42,23 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 20px;
+  }
+}
 .glass { background: rgba(0, 0, 0, 0.4); }
 p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
 .team-values { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+@media screen and (max-width: 768px) {
+  .team-values {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+  .value-item:not(:first-child) {
+    margin-top: 1em;
+  }
+}
 .value-item h3 { color: #ff3e00; margin-bottom: 15px; }
 </style>
