@@ -5,7 +5,7 @@ const activities = ref<any[]>([]);
 
 onMounted(async () => {
   try {
-    const res = await fetch('https://raw.githubusercontent.com/junji-fujii/ModerateFunny/main/public/data/activities.json');
+    const res = await fetch('/data/activities.json');
     const data = await res.json();
     activities.value = data;
   } catch (error) {

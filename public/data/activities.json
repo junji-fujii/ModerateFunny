@@ -6,6 +6,19 @@
     "distance": "XXkm",
     "image": "https://placehold.jp/800x533.png",
     "description": "リード文が入ります",
-    "content": "細かいライドの内容が入ります"
+    "sections": [
+      {
+        "image": "https://placehold.jp/800x533.png",
+        "text": "1つ目のセクションの本文です。ライドの開始から中盤までの様子をここに記述します。"
+      },
+      {
+        "image": "https://placehold.jp/800x533.png",
+        "text": "2つ目のセクションの本文です。休憩中のエピソードや、目的地の様子などを記述します。"
+      },
+      {
+        "image": "https://placehold.jp/800x533.png",
+        "text": "3つ目のセクションの本文です。帰路の様子や、今回のライドの感想をここにまとめます。"
+      }
+    ]
   }
 ]

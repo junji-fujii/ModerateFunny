@@ -9,7 +9,7 @@ const allActivities = ref<any[]>([]);
 
 onMounted(async () => {
   try {
-    const res = await fetch('https://raw.githubusercontent.com/junji-fujii/ModerateFunny/main/public/data/activities.json');
+    const res = await fetch('/data/activities.json');
     allActivities.value = await res.json();
   } catch (error) {
     console.error('Error fetching activity detail:', error);
@@ -35,11 +35,23 @@ const goBack = () => {
       </div>
       <h2 class="activity-title">{{ activity.title }}</h2>
       <div class="card glass">
-        <div class="activity-image-container" v-if="activity.image">
-          <img :src="activity.image" :alt="activity.title" class="activity-image" />
+        <div v-if="activity.sections && activity.sections.length > 0">
+          <div v-for="(section, index) in activity.sections" :key="index" class="activity-section">
+            <div class="activity-image-container" v-if="section.image">
+              <img :src="section.image" :alt="activity.title" class="activity-image" />
+            </div>
+            <div class="activity-content" v-if="section.text">
+              <p>{{ section.text }}</p>
+            </div>
+          </div>
         </div>
-        <div class="activity-content">
-          <p>{{ activity.content }}</p>
+        <div v-else>
+          <div class="activity-image-container" v-if="activity.image">
+            <img :src="activity.image" :alt="activity.title" class="activity-image" />
+          </div>
+          <div class="activity-content">
+            <p>{{ activity.content }}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -78,6 +90,14 @@ const goBack = () => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.activity-section {
+  margin-bottom: 60px;
+}
+
+.activity-section:last-child {
+  margin-bottom: 0;
 }
 
 .activity-content { line-height: 2; font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); }
